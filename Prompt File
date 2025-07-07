@@ -1,0 +1,109 @@
+Complete Prompt: Local Database Manager Web Application
+Goal: Create a complete, self-contained React web application that serves as a user-friendly interface for managing local databases. The "local database" will be implemented using IndexedDB, providing full CRUD (Create, Read, Update, Delete) capabilities for databases, object stores (tables), and individual records, all within the user's browser. The application must feature a modern, beautiful, and fully responsive user interface.
+
+Technology Stack:
+
+Frontend Framework: React.js (functional components, hooks).
+
+Styling: Tailwind CSS for all visual styling.
+
+Client-side Database: IndexedDB API.
+
+State Management: React Context API or Zustand.
+
+Icons: lucide-react for UI icons.
+
+Core Features to Implement:
+
+Database Management:
+
+Create Database: A clear input field and button to create a new IndexedDB database.
+
+Select/Open Database: A dropdown or list to display existing IndexedDB databases and allow the user to select one. Upon selection, the application should connect to it.
+
+Delete Database: A button to delete the currently selected database (with a confirmation modal).
+
+Object Store (Table) Management:
+
+Once a database is selected, display a list of its object stores.
+
+Create Object Store: A form to create a new object store within the selected database. This form should allow defining the object store name, key path (e.g., id, name), and an optional autoIncrement property.
+
+Delete Object Store: A button next to each object store in the list to delete it (with a confirmation modal).
+
+Data CRUD Operations:
+
+When an object store is selected, display its records in a well-formatted, paginated table.
+
+Create Record: A button to open a modal/form for adding a new record to the selected object store. The form should dynamically adapt to the expected structure (e.g., if a key path name is defined, provide an input for name).
+
+Read Records:
+
+Display records in a responsive table with clear headers.
+
+Implement client-side sorting by clicking table headers (for string, number types).
+
+Implement a search/filter input field that filters records in the displayed table based on text content across all fields.
+
+Implement pagination for large datasets.
+
+Update Record: A button/icon next to each record in the table to open an editable form (modal) pre-filled with the record's data. Allow users to modify fields and save changes.
+
+Delete Record: A button/icon next to each record in the table to delete it (with a confirmation modal). Allow multi-select and bulk delete if feasible.
+
+User Interface (UI/UX) Requirements:
+
+Aesthetics: Modern, clean, and intuitive design. Use rounded corners on all elements.
+
+Responsiveness: The layout must be fully responsive, adapting seamlessly to desktop, tablet, and mobile screen sizes using Tailwind's responsive prefixes (sm:, md:, lg:). Avoid horizontal scrolling.
+
+Typography: Use "Inter" font throughout the application.
+
+Feedback: Provide clear visual feedback for all operations (e.g., success messages, error messages, loading indicators). Use custom modal components for confirmations instead of alert() or confirm().
+
+Layout:
+
+A main container that centers the application content.
+
+A sidebar or top navigation for database selection and object store listing.
+
+A main content area for data display and CRUD forms.
+
+Buttons should be clearly styled with appropriate padding and margins.
+
+Specific Implementation Instructions:
+
+Self-Contained: The entire React application must be provided within a single <immersive type="code" language="react"> block.
+
+No ReactDOM.render(): Do not include ReactDOM.render() or render() calls.
+
+Tailwind CSS: Assume Tailwind CSS is available and use its classes exclusively for styling.
+
+IndexedDB Wrapper: Create a simple utility file or a custom hook to abstract IndexedDB operations (e.g., openDB, createObjectStore, addRecord, getRecords, updateRecord, deleteRecord, deleteDB). This will keep the component logic clean.
+
+Error Handling: Implement try/catch blocks for IndexedDB operations and display user-friendly error messages.
+
+Loading States: Show loading indicators when fetching or performing heavy IndexedDB operations.
+
+Comments: Provide extensive comments throughout the code, explaining logic, IndexedDB interactions, and React component structure.
+
+No External APIs: The application should not rely on any external APIs for data persistence or functionality beyond IndexedDB.
+
+No alert() or confirm(): Use custom modal components for any user confirmations or alerts.
+
+Accessibility: Consider basic accessibility (e.g., semantic HTML, keyboard navigation for interactive elements).
+
+Example Data Structure (for initial testing/demonstration):
+When creating a new object store, assume a simple structure like:
+
+{
+  "id": "unique-id-string",
+  "name": "Item Name",
+  "description": "Item Description",
+  "quantity": 10
+}
+
+The id can be generated using crypto.randomUUID(). The form for adding/editing records should allow input for name, description, and quantity.
+
+Expected Output:
+A complete, runnable React application code block that fulfills all the above requirements, demonstrating a functional IndexedDB manager.
